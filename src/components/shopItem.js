@@ -36,7 +36,9 @@ const StopItem = ({products, deleteProduct, onChange}) => {
 };
 
 StopItem.propTypes = {
-    props: PropTypes.array,
+    products: PropTypes.array,
+    deleteProduct: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default StopItem;

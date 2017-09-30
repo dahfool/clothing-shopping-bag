@@ -7,11 +7,9 @@ import { applyPromotion } from '../actions/promotionsActions'
 
 const mapStateToProps = (state, props) => (
     {
-        products: state.products.checkoutItems,
         total: state.products.total,
         promotion: state.products.discountsActive,
         discountedTotal: state.products.discountCountedTotal,
-        discountsActive: state.products.DiscountedAmount,
         discountedAmount: state.products.discountedAmount
     }
 );

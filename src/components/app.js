@@ -11,7 +11,7 @@ export default class App extends Component {
     }
 
     render() {
-        const products = this.props.products.checkoutItems
+        const products = this.props.products.checkoutItems;
 
         return (
             <div className="App">

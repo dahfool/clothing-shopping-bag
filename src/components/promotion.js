@@ -27,6 +27,8 @@ const Promotion = ({onSubmit, promotion}) => {
 };
 
 Promotion.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    promotion: PropTypes.object.isRequired
 };
 
 export default Promotion;

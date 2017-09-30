@@ -1,7 +1,8 @@
 import React from 'react';
 import Promotion from '../components/promotion'
+import PropTypes from 'prop-types'
 
-const Checkout = ({products, total, promotion, discountedTotal, discountedAmount, onClick, applyPromotion}) => {
+const Checkout = ({total, promotion, discountedTotal, discountedAmount, onClick, applyPromotion}) => {
 
     return (
         <div className="App">
@@ -48,7 +49,16 @@ const Checkout = ({products, total, promotion, discountedTotal, discountedAmount
             </div>
         </div>
     );
-}
+};
+
+Checkout.propTypes = {
+    total: PropTypes.string,
+    promotion: PropTypes.object.isRequired,
+    discountedTotal: PropTypes.string,
+    discountedAmount: PropTypes.string,
+    onClick: PropTypes.func.isRequired,
+    applyPromotion: PropTypes.func.isRequired
+};
 
 export default Checkout;
 
