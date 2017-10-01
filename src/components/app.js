@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ShopItem from '../components/shopItem'
+import ShopItemList from '../components/shopItemList'
 import PropTypes from 'prop-types'
 
 export default class App extends Component {
@@ -17,7 +17,7 @@ export default class App extends Component {
         return (
             <div className="App">
                 <h1>YOUR SHOPPING BAG</h1>
-                <ShopItem products={products} deleteProduct={this.props.deleteProduct} onChange={this.props.onChange}/>
+                <ShopItemList products={products} deleteProduct={this.props.deleteProduct} onChange={this.props.onChange}/>
                 <button type='submit' className='btn btn-primary btn-lg' onClick={(e)=>this.props.onSubmit(e, 'checkout')}>Next</button>
             </div>
         );
