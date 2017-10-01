@@ -1,15 +1,13 @@
 import { connect } from 'react-redux'
 import App from '../components/app'
 import product from '../actions/productsActions'
-import { navigate } from '../actions/routing'
-import { checkPromotion } from '../actions/promotionsActions'
+import navigate from '../actions/routing'
+import promotion from '../actions/promotionsActions'
 
 
-const mapStateToProps = (state) => (
-    {
-        products: state.products,
-    }
-);
+const mapStateToProps = (state) => ({
+    products: state.products,
+});
 
 const mapDispatchToProps = (dispatch, props) => ({
     loadProducts: () => {
@@ -28,8 +26,8 @@ const mapDispatchToProps = (dispatch, props) => ({
     onSubmit: (e, page) => {
         e.preventDefault();
         dispatch(product.updateTotal());
-        dispatch(checkPromotion())
-        dispatch(navigate(page));
+        dispatch(promotion.checkPromotion())
+        dispatch(navigate.navigate(page));
     },
 
 });

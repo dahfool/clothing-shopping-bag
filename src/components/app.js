@@ -1,5 +1,6 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import ShopItem from '../components/shopItem'
+import PropTypes from 'prop-types'
 
 export default class App extends Component {
 
@@ -22,3 +23,11 @@ export default class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+    products: PropTypes.object.isRequired,
+    deleteProduct: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired
+
+};

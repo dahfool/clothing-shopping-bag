@@ -89,9 +89,7 @@ const products = (state = InitialState, action) => {
                     discountedAmount: (discountCheck.DiscountPercent / 100 * state.total).toFixed(2)
                 };
             }
-
             return state
-
         }
 
         case 'CHECK_PROMOTION': {
@@ -105,9 +103,7 @@ const products = (state = InitialState, action) => {
                     discountedAmount: discount,
                     discountCountedTotal: (state.total - discount).toFixed(2)
                 };
-
             }
-
             return state
         }
 

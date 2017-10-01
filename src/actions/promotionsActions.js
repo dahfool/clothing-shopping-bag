@@ -1,13 +1,18 @@
-export const applyPromotion = (id) => (
+const applyPromotion = (id) => (
     {
         type: 'APPLY_PROMOTION',
         payload: id
     }
 );
 
-export const checkPromotion = () => (
+const checkPromotion = () => (
     {
         type: 'CHECK_PROMOTION',
     }
 );
+
+export default {
+    applyPromotion,
+    checkPromotion
+}
 
