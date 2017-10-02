@@ -29,13 +29,10 @@ const products = (state = InitialState, action) => {
     switch (action.type) {
         case 'LOAD_PRODUCTS': {
 
-            let total = 0;
-            action.payload.map(element => (total +=parseInt(element.ProductPrice, 0)));
-
             return {
                 ...state,
                 items: action.payload,
-                total: total,
+                total: action.payload.reduce((total, element) => (total +=parseInt(element.ProductPrice, 0)), 0),
                 checkoutItems: action.payload.map(element => ({
                     ...element,
                     quantity : 1,
@@ -63,8 +60,7 @@ const products = (state = InitialState, action) => {
 
         case 'UPDATE_TOTAL': {
 
-            let total = 0;
-            state.checkoutItems.map(element => (total +=parseInt(element.ProductPrice, 0)));
+            let total = state.checkoutItems.reduce((element, item) => (element +=parseInt(item.ProductPrice, 0)), 0);
 
             return {
                 ...state,
