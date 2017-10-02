@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/dahfool/clothing-shopping-bag.svg?style=svg)](https://circleci.com/gh/dahfool/clothing-shopping-bag)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
