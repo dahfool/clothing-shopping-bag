@@ -1,36 +1,36 @@
-import data from "../data/products.json";
+import data from '../data/products.json';
 
 const loadProducts = () => (
-    {
-        type: 'LOAD_PRODUCTS',
-        payload: data
-    }
+  {
+    type: 'LOAD_PRODUCTS',
+    payload: data
+  }
 );
 
 const deleteProduct = (id) => (
-    {
-        type: 'DELETE_PRODUCT',
-        payload: id
-    }
+  {
+    type: 'DELETE_PRODUCT',
+    payload: id
+  }
 );
 
-const updatePrice = (quantity, id, index ) => (
-    {
-        type: 'UPDATE_PRICE',
-        payload: { quantity, id, index }
-    }
+const updatePrice = (quantity, id, index) => (
+  {
+    type: 'UPDATE_PRICE',
+    payload: {quantity, id, index}
+  }
 );
 
 const updateTotal = () => (
-    {
-        type: 'UPDATE_TOTAL'
-    }
+  {
+    type: 'UPDATE_TOTAL'
+  }
 );
 
 
 export default {
-    loadProducts,
-    deleteProduct,
-    updatePrice,
-    updateTotal
+  loadProducts,
+  deleteProduct,
+  updatePrice,
+  updateTotal
 };
