@@ -17,12 +17,12 @@ const Checkout = ({total, promotion, discountedTotal, discountedAmount, onClick,
             <tbody>
             <tr>
               <td><h4>SUBTOTAL</h4></td>
-              <td></td>
+              <td />
               <td className='text-right h3'><sup>$</sup> {total}</td>
             </tr>
             <tr>
               <td><h4>PROMOTION CODE</h4></td>
-              <td></td>
+              <td />
               <td className='text-right h3'><sup>$</sup> {discountedAmount}</td>
             </tr>
             <tr>
@@ -30,7 +30,7 @@ const Checkout = ({total, promotion, discountedTotal, discountedAmount, onClick,
                 <h4>ESTIMATED SHIPPING</h4>
                 <p>You will qualify for fee shipping <br/> because your order is over $50</p>
               </td>
-              <td></td>
+              <td />
               <td className='text-right'>FREE</td>
             </tr>
             <tr>
@@ -38,7 +38,7 @@ const Checkout = ({total, promotion, discountedTotal, discountedAmount, onClick,
                 <h4>ESTIMATED TOTAL</h4>
                 <p>Tax will be applied during checkout</p>
               </td>
-              <td></td>
+              <td />
               <td className='text-right h3'><sup>$</sup> {discountedTotal}</td>
             </tr>
             </tbody>

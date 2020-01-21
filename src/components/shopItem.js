@@ -2,9 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const StopItem = ({products, deleteProduct, onChange}) => {
-
   return (
-
     <tbody>
     {products.map((result, i) => (
       <tr key={i}>

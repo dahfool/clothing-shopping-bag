@@ -1,35 +1,39 @@
-import React, {Component} from 'react'
+import React, {useEffect} from 'react'
 import ShopItemList from '../components/shopItemList'
 import PropTypes from 'prop-types'
 
-export default class App extends Component {
+const App = ({products, loadProducts, deleteProduct, onChange, onSubmit}) => {
 
-  componentWillMount() {
-
-    if (this.props.products.items.length === 0) {
-      this.props.loadProducts()
+  useEffect(() => {
+    if (products.items.length === 0) {
+      loadProducts()
     }
-  }
+  })
 
-  render() {
-    const products = this.props.products.checkoutItems;
-
-    return (
-      <div className="App">
-        <h1>YOUR SHOPPING BAG</h1>
-        <ShopItemList products={products} deleteProduct={this.props.deleteProduct} onChange={this.props.onChange}/>
-        <button type='submit' className='btn btn-primary btn-lg'
-                onClick={(e) => this.props.onSubmit(e, 'checkout')}>Next
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <h1>YOUR SHOPPING BAG</h1>
+      <ShopItemList
+        products={products.items}
+        deleteProduct={deleteProduct}
+        onChange={onChange}
+      />
+      <button
+        type='submit'
+        className='btn btn-primary btn-lg'
+        onClick={(e) => onSubmit(e, 'checkout')}
+      >Next
+      </button>
+    </div>
+  )
 }
+
 
 App.propTypes = {
   products: PropTypes.object.isRequired,
   deleteProduct: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
-
 };
+
+export default App
