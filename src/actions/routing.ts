@@ -1,14 +1,14 @@
 import {push, goBack} from 'react-router-redux'
 
-const navigate = (page) => (
-  (dispatch) => {
+const navigate = (page: string) => (
+  (dispatch: any) => {
     dispatch(push(`/${page}`))
   }
 );
 
-const navigateBack = (page) => (
-  (dispatch) => {
-    dispatch(goBack(`/${page}`))
+const navigateBack = () => (
+  (dispatch: any) => {
+    dispatch(goBack())
   }
 );
 

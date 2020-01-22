@@ -1,8 +1,8 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {shallow} from 'enzyme';
-import Checkout from '../../components/checkout'
-import Promotion from '../../components/promotion'
+import Checkout from '../../components/Checkout/Checkout'
+import Promotion from '../../components/Promotion/Promotion'
 
 const setup = (total = '', promotion = {}, discountedTotal = '', discountedAmount = '') => {
 

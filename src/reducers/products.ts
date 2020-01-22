@@ -1,21 +1,26 @@
-let InitialState = {
+import { DELETE_PRODUCT, LOAD_PRODUCTS, UPDATE_PRICE, UPDATE_TOTAL } from '../actions/products/constants'
+import { APPLY_PROMOTION, CHECK_PROMOTION } from '../actions/promotions/constants'
+import {Inital, ProductsActionType} from '../actions/products/actions.types';
+import {PromotionActionType} from '../actions/promotions/actions.types';
+
+let InitialState: Inital = {
   items: [],
   checkoutItems: [],
-  total: null,
-  discountCountedTotal: null,
-  discountedAmount: '0.00',
+  total: 0,
+  discountCountedTotal: 0,
+  discountedAmount: 0,
   promotions: [
     {
       'OfferCode': 'jf10',
-      'DiscountPercent': '7',
+      'DiscountPercent': 7,
     },
     {
       'OfferCode': 'pb70',
-      'DiscountPercent': '2',
+      'DiscountPercent': 2,
     },
     {
       'OfferCode': 'kl44',
-      'DiscountPercent': '12',
+      'DiscountPercent': 12,
     }
   ],
   discountsActive: {
@@ -24,30 +29,32 @@ let InitialState = {
 };
 
 
-const products = (state = InitialState, action) => {
+const products = (
+  state = InitialState,
+  action: PromotionActionType | ProductsActionType
+) => {
   switch (action.type) {
-    case 'LOAD_PRODUCTS': {
-
+    case LOAD_PRODUCTS: {
       return {
         ...state,
         items: action.payload,
-        total: action.payload.reduce((total, element) => (total += parseInt(element.ProductPrice, 0)), 0),
+        total: action.payload.reduce((total, element) => (total += element.ProductPrice), 0),
         checkoutItems: action.payload.map(element => ({
           ...element,
           quantity: 1,
-          ProductPrice: parseInt(element.ProductPrice, 0).toFixed(2)
+          ProductPrice: element.ProductPrice
         }))
-      };
+      }
     }
 
-    case 'DELETE_PRODUCT': {
+    case DELETE_PRODUCT: {
       return {
         ...state,
         checkoutItems: state.checkoutItems.filter(item => action.payload !== item.ProductName)
-      };
+      }
     }
 
-    case 'UPDATE_PRICE': {
+    case UPDATE_PRICE: {
 
       const quantity = (action.payload.quantity > 0) ? action.payload.quantity : 1;
 
@@ -55,24 +62,24 @@ const products = (state = InitialState, action) => {
         ...state,
         checkoutItems: state.checkoutItems.map(element => element.ProductName === action.payload.id ? {
           ...element,
-          ProductPrice: (state.items[action.payload.index].ProductPrice * quantity).toFixed(2),
+          ProductPrice: state.items[action.payload.index].ProductPrice * quantity,
           quantity: quantity
         } : element)
       }
     }
 
-    case 'UPDATE_TOTAL': {
+    case UPDATE_TOTAL: {
 
-      let total = state.checkoutItems.reduce((element, item) => (element += parseInt(item.ProductPrice, 0)), 0);
+      let total = state.checkoutItems.reduce((element, item) => (element += item.ProductPrice), 0);
 
       return {
         ...state,
-        total: total.toFixed(2),
+        total: total,
         discountCountedTotal: (total - state.discountedAmount).toFixed(2)
       }
     }
 
-    case 'APPLY_PROMOTION': {
+    case APPLY_PROMOTION: {
 
 
       let discountCheck = state.promotions.find(x => x.OfferCode === action.payload);
@@ -91,11 +98,11 @@ const products = (state = InitialState, action) => {
       return state
     }
 
-    case 'CHECK_PROMOTION': {
+    case CHECK_PROMOTION: {
 
-      if (state.discountedAmount !== '0.00') {
+      if (state.discountedAmount !== 0) {
 
-        let discount = (state.discountsActive.DiscountPercent / 100 * state.total).toFixed(2);
+        let discount = (state.discountsActive.DiscountPercent / 100 * state.total)
 
         return {
           ...state,
@@ -111,4 +118,4 @@ const products = (state = InitialState, action) => {
   }
 };
 
-export default products;
+export default products

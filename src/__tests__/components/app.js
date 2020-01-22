@@ -1,8 +1,8 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {shallow} from 'enzyme';
-import App from '../../components/app'
-import ShopItemList from '../../components/shopItemList'
+import App from '../../components/App/App'
+import ShopItemList from '../../components/ShopItemList/ShopItemList'
 
 const setup = (products = {items: []}) => {
 

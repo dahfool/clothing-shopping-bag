@@ -1,4 +1,4 @@
-import promotion from '../../actions/promotionsActions'
+import promotion from '../../actions/promotions/actions'
 
 
 describe('Promotions actions', () => {

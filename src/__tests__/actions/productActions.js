@@ -1,4 +1,4 @@
-import product from '../../actions/productsActions'
+import product from '../../actions/products/actions'
 import data from '../../data/products.json';
 
 
