@@ -5,7 +5,7 @@ import data from '../../data/products.json';
 describe('Product actions', () => {
 
   it('should return load prodcuts', () => {
-    expect(product.loadProducts()).toEqual({
+    expect(product.loadProducts(data)).toEqual({
       type: 'LOAD_PRODUCTS',
       payload: data
     });

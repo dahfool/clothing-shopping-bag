@@ -8,21 +8,21 @@ describe('Producer reducer', () => {
     expect(products(undefined, {type: '@@INIT'})).toEqual({
       items: [],
       checkoutItems: [],
-      total: null,
-      discountCountedTotal: null,
-      discountedAmount: '0.00',
+      total: 0,
+      discountCountedTotal: 0,
+      discountedAmount: 0,
       promotions: [
         {
           'OfferCode': 'jf10',
-          'DiscountPercent': '7',
+          'DiscountPercent': 7,
         },
         {
           'OfferCode': 'pb70',
-          'DiscountPercent': '2',
+          'DiscountPercent': 2,
         },
         {
           'OfferCode': 'kl44',
-          'DiscountPercent': '12',
+          'DiscountPercent': 12,
         }
       ],
       discountsActive: {
