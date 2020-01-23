@@ -1,12 +1,12 @@
-import promotion from '../../actions/promotions/actions'
+import promotion from './actions'
 
 
 describe('Promotions actions', () => {
 
   it('should return id to apply promotion', () => {
-    expect(promotion.applyPromotion(2)).toEqual({
+    expect(promotion.applyPromotion('2')).toEqual({
       type: 'APPLY_PROMOTION',
-      payload: 2
+      payload: '2'
     });
   });
 

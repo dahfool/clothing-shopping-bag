@@ -3,7 +3,7 @@ import { APPLY_PROMOTION, CHECK_PROMOTION } from '../actions/promotions/constant
 import {Inital, ProductsActionType} from '../actions/products/actions.types';
 import {PromotionActionType} from '../actions/promotions/actions.types';
 
-let InitialState: Inital = {
+export let InitialState: Inital = {
   items: [],
   checkoutItems: [],
   total: 0,
