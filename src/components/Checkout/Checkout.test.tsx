@@ -1,18 +1,22 @@
 import React from 'react'
-import {render} from 'react-dom'
 import {shallow} from 'enzyme';
-import Checkout from '../../components/Checkout/Checkout'
-import Promotion from '../../components/Promotion/Promotion'
+import Checkout from './Checkout'
+import Promotion from '../Promotion/Promotion'
 
-const setup = (total = '', promotion = {}, discountedTotal = '', discountedAmount = '') => {
+const setup = (total = 10, promotion = { DiscountPercent: 0}, discountedTotal = 0, discountedAmount = 0) => {
 
   const actions = {
     onClick: jest.fn(),
     applyPromotion: jest.fn()
   };
 
-  const component = shallow(<Checkout total={total} promotion={promotion} discountedTotal={discountedTotal}
-                                      discountedAmount={discountedAmount} {...actions} />);
+  const component = shallow(<Checkout
+    total={total}
+    promotion={promotion}
+    discountedTotal={discountedTotal}
+    discountedAmount={discountedAmount}
+    {...actions}
+  />);
 
   return {
     component,
@@ -39,7 +43,6 @@ describe('Checkout component', () => {
     const {actions, button} = setup();
     button.at(0).simulate('click');
     expect(actions.onClick).toBeCalled();
-
   });
 
 

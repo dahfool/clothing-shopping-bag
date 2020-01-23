@@ -1,9 +1,26 @@
 import React from 'react'
 import {shallow} from 'enzyme';
-import App from '../../components/App/App'
-import ShopItemList from '../../components/ShopItemList/ShopItemList'
+import App from './App'
+import ShopItemList from '../ShopItemList/ShopItemList'
 
-const setup = (products = {items: []}) => {
+const data = [
+  {
+    "ProductName": "Solid Green Cotton t-shirt",
+    "Gender": "Male",
+    "ProductPrice": 11,
+    "DiscountPercent": 5,
+    "ImageName": "T1.jpg"
+  },
+  {
+    "ProductName": "Pink Rainbow Print Girls Tee",
+    "Gender": "Female",
+    "ProductPrice": 17,
+    "DiscountPercent": 2,
+    "ImageName": "T2.jpg"
+  }
+]
+
+const setup = (products = data) => {
 
   const actions = {
     deleteProduct: jest.fn(),

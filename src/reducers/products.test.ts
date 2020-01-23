@@ -1,6 +1,5 @@
-import products from '../../reducers/products'
-import data from '../../data/products.json';
-
+import products, { InitialState } from './products'
+import data from '../data/products.json';
 
 describe('Producer reducer', () => {
 
@@ -32,7 +31,7 @@ describe('Producer reducer', () => {
   });
 
   it('should load products to reducer', () => {
-    let items = products({}, {type: 'LOAD_PRODUCTS', payload: data});
+    let items = products({...InitialState}, {type: 'LOAD_PRODUCTS', payload: data});
     expect(items.items.length).toBeGreaterThan(0)
   });
 

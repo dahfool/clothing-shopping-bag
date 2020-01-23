@@ -2,7 +2,8 @@ import {
   DELETE_PRODUCT,
   UPDATE_PRICE,
   UPDATE_TOTAL,
-  LOAD_PRODUCTS
+  LOAD_PRODUCTS,
+  INIT
 } from './constants'
 import {Promotion} from '../promotions/actions.types'
 import { Item } from '../../components/ShopItem/Shopitem.types'
@@ -44,4 +45,9 @@ export interface UpdateTotalAction {
   type: typeof UPDATE_TOTAL
 }
 
-export type ProductsActionType = LoadProductsAction | DeleteAction | UpdateTotalAction | UpdatePriceAction
+
+export interface InitialLoad {
+  type: typeof INIT
+}
+
+export type ProductsActionType = LoadProductsAction | DeleteAction | UpdateTotalAction | UpdatePriceAction | InitialLoad
