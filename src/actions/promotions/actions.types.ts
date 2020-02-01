@@ -1,7 +1,6 @@
 import {
-  APPLY_PROMOTION,
-  CHECK_PROMOTION
-} from './constants'
+  ActionKeys
+} from './keys'
 
 export interface Promotion {
   OfferCode: string
@@ -9,12 +8,12 @@ export interface Promotion {
 }
 
 export interface ApplyPromotionAction {
-  type: typeof APPLY_PROMOTION,
+  type: ActionKeys.APPLY_PROMOTION,
   payload: string
 }
 
 export interface CheckPromotionAction {
-  type: typeof CHECK_PROMOTION
+  type: ActionKeys.CHECK_PROMOTION
 }
 
 export type PromotionActionType = ApplyPromotionAction | CheckPromotionAction

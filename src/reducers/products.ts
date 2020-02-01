@@ -1,5 +1,5 @@
-import { DELETE_PRODUCT, LOAD_PRODUCTS, UPDATE_PRICE, UPDATE_TOTAL } from '../actions/products/constants'
-import { APPLY_PROMOTION, CHECK_PROMOTION } from '../actions/promotions/constants'
+import {ActionKeys} from '../actions/products/keys'
+import {ActionKeys as PromotionKeys} from '../actions/promotions/keys'
 import {Inital, ProductsActionType} from '../actions/products/actions.types';
 import {PromotionActionType} from '../actions/promotions/actions.types';
 
@@ -34,7 +34,7 @@ const products = (
   action: PromotionActionType | ProductsActionType
 ) => {
   switch (action.type) {
-    case LOAD_PRODUCTS: {
+    case ActionKeys.LOAD_PRODUCTS: {
       return {
         ...state,
         items: action.payload,
@@ -47,14 +47,14 @@ const products = (
       }
     }
 
-    case DELETE_PRODUCT: {
+    case ActionKeys.DELETE_PRODUCT: {
       return {
         ...state,
         checkoutItems: state.checkoutItems.filter(item => action.payload !== item.ProductName)
       }
     }
 
-    case UPDATE_PRICE: {
+    case ActionKeys.UPDATE_PRICE: {
 
       const quantity = (action.payload.quantity > 0) ? action.payload.quantity : 1;
 
@@ -68,7 +68,7 @@ const products = (
       }
     }
 
-    case UPDATE_TOTAL: {
+    case ActionKeys.UPDATE_TOTAL: {
 
       let total = state.checkoutItems.reduce((element, item) => (element += item.ProductPrice), 0);
 
@@ -79,7 +79,7 @@ const products = (
       }
     }
 
-    case APPLY_PROMOTION: {
+    case PromotionKeys.APPLY_PROMOTION: {
 
 
       let discountCheck = state.promotions.find(x => x.OfferCode === action.payload);
@@ -98,7 +98,7 @@ const products = (
       return state
     }
 
-    case CHECK_PROMOTION: {
+    case PromotionKeys.CHECK_PROMOTION: {
 
       if (state.discountedAmount !== 0) {
 
