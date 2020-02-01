@@ -1,10 +1,6 @@
 import {
-  DELETE_PRODUCT,
-  UPDATE_PRICE,
-  UPDATE_TOTAL,
-  LOAD_PRODUCTS,
-  INIT
-} from './constants'
+  ActionKeys
+} from './keys'
 import {Promotion} from '../promotions/actions.types'
 import { Item } from '../../components/ShopItem/Shopitem.types'
 
@@ -23,17 +19,17 @@ export interface Inital {
 }
 
 export interface LoadProductsAction {
-  type: typeof LOAD_PRODUCTS
+  type: ActionKeys.LOAD_PRODUCTS
   payload: Items
 }
 
 export interface DeleteAction {
-  type: typeof DELETE_PRODUCT
+  type: ActionKeys.DELETE_PRODUCT
   payload: string
 }
 
 export interface UpdatePriceAction {
-  type: typeof UPDATE_PRICE
+  type: ActionKeys.UPDATE_PRICE
   payload: {
     quantity: number
     id: string
@@ -42,12 +38,12 @@ export interface UpdatePriceAction {
 }
 
 export interface UpdateTotalAction {
-  type: typeof UPDATE_TOTAL
+  type: ActionKeys.UPDATE_TOTAL
 }
 
 
 export interface InitialLoad {
-  type: typeof INIT
+  type:  ActionKeys.INIT
 }
 
 export type ProductsActionType = LoadProductsAction | DeleteAction | UpdateTotalAction | UpdatePriceAction | InitialLoad

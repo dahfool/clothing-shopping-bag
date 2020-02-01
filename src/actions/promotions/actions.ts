@@ -1,16 +1,15 @@
 import {
-  APPLY_PROMOTION,
-  CHECK_PROMOTION
-} from './constants'
+  ActionKeys
+} from './keys'
 import { PromotionActionType } from './actions.types'
 
 const applyPromotion = (id: string): PromotionActionType => ({
-  type: APPLY_PROMOTION,
+  type: ActionKeys.APPLY_PROMOTION,
   payload: id
 })
 
 const checkPromotion = (): PromotionActionType => ({
-  type: CHECK_PROMOTION
+  type: ActionKeys.CHECK_PROMOTION
 })
 
 export default {

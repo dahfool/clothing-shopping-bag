@@ -1,0 +1,4 @@
+export enum ActionKeys {
+  APPLY_PROMOTION = 'APPLY_PROMOTION',
+  CHECK_PROMOTION = 'CHECK_PROMOTION'
+}
